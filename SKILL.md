@@ -120,9 +120,12 @@ description: 한국어 중심 Seedance 2.0 영상 프롬프트 생성/개선 스
 - 액션/판타지: 동작 선명도 + 카메라 속도 제어 + 충돌 사운드
 - 정보/교육: 단계적 시각화 + 과장 연출 최소화
 - 연재형: 에피소드별 엔드프레임 메모 필수
+- director-mode: 목표/제약/승인기준 중심으로 지시형 출력
+- multi-agent-plan: 이미지/영상/카피를 병렬 작업으로 분할 제안
 
 세부 템플릿은 `references/templates-ko.md`를 읽어 적용한다.
 즉시 사용 가능한 샘플은 `references/examples-ko.md`를 우선 참조한다.
+운영 관점 인사이트는 `references/insights-rp6-robonuggets.md`를 참조한다.
 
 ## 실패 방지 규칙
 
