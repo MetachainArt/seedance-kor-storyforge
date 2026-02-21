@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  배포트리거:
+  deploy_trigger:
     runs-on: ubuntu-latest
     env:
       N8N_DEPLOY_WEBHOOK_URL: ${{ secrets.N8N_DEPLOY_WEBHOOK_URL }}
