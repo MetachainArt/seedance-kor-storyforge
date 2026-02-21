@@ -8,14 +8,16 @@ on:
 jobs:
   배포트리거:
     runs-on: ubuntu-latest
+    env:
+      N8N_DEPLOY_WEBHOOK_URL: ${{ secrets.N8N_DEPLOY_WEBHOOK_URL }}
     steps:
       - name: 코드 체크아웃
         uses: actions/checkout@v4
 
       - name: 배포 웹훅 호출
-        if: ${{ secrets.N8N_DEPLOY_WEBHOOK_URL != '' }}
+        if: ${{ env.N8N_DEPLOY_WEBHOOK_URL != '' }}
         run: |
-          curl -sS -X POST "${{ secrets.N8N_DEPLOY_WEBHOOK_URL }}" \
+          curl -sS -X POST "$N8N_DEPLOY_WEBHOOK_URL" \
             -H 'Content-Type: application/json' \
             -d '{
               "repo":"${{ github.repository }}",
@@ -26,6 +28,6 @@ jobs:
             }'
 
       - name: 배포 웹훅 미설정 안내
-        if: ${{ secrets.N8N_DEPLOY_WEBHOOK_URL == '' }}
+        if: ${{ env.N8N_DEPLOY_WEBHOOK_URL == '' }}
         run: |
           echo "N8N_DEPLOY_WEBHOOK_URL 시크릿이 없어 웹훅 호출을 건너뜁니다."
